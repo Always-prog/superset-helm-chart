@@ -8,5 +8,7 @@ entries:
       name: supersetta
       sources:
       - https://github.com/helm/charts
+      urls:
+      - https://always-prog.github.io/superset-helm-chart/supersetta.zip
       version: 1.1.0
 generated: 2024-06-25T16:23:20.499543808-06:00
