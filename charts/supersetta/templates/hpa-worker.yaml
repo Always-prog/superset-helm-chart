@@ -57,7 +57,7 @@ spec:
         name: cpu
         target:
           type: AverageValue
-          averageUtilization: {{ .Values.supersetWorker.autoscaling.AverageValueCPU }}
+          averageValue: {{ .Values.supersetWorker.autoscaling.AverageValueCPU }}
     {{- end }}
     {{- if .Values.supersetWorker.autoscaling.AverageValueMEM }}
     - type: Resource
@@ -65,6 +65,6 @@ spec:
         name: memory
         target:
           type: AverageValue
-          averageUtilization: {{ .Values.supersetWorker.autoscaling.AverageValueMEM }}
+          averageValue: {{ .Values.supersetWorker.autoscaling.AverageValueMEM }}
     {{- end }}
 {{- end }}
