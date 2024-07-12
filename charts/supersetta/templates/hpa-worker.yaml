@@ -43,14 +43,6 @@ spec:
           type: Utilization
           averageUtilization: {{ .Values.supersetWorker.autoscaling.targetCPUUtilizationPercentage }}
     {{- end }}
-    {{- if .Values.supersetNode.autoscaling.targetCPUUtilizationPercentage }}
-    - type: Resource
-      resource:
-        name: cpu
-        target:
-          type: AverageValue
-          averageUtilization: {{ .Values.supersetNode.autoscaling.AverageValue }}
-    {{- end }}
     {{- if .Values.supersetWorker.autoscaling.targetMemoryUtilizationPercentage }}
     - type: Resource
       resource:
@@ -58,5 +50,21 @@ spec:
         target:
           type: Utilization
           averageUtilization: {{ .Values.supersetWorker.autoscaling.targetMemoryUtilizationPercentage }}
+    {{- end }}
+    {{- if .Values.supersetWorker.autoscaling.AverageValueCPU }}
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: AverageValue
+          averageUtilization: {{ .Values.supersetNode.autoscaling.AverageValueCPU }}
+    {{- end }}
+    {{- if .Values.supersetWorker.autoscaling.AverageValueMEM }}
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: AverageValue
+          averageUtilization: {{ .Values.supersetNode.autoscaling.AverageValueMEM }}
     {{- end }}
 {{- end }}

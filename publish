@@ -1,2 +1,2 @@
-helm repo index .
 helm package charts/supersetta
+helm repo index .
