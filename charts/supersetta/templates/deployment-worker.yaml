@@ -68,6 +68,9 @@ spec:
           {{- toYaml .Values.supersetWorker.podLabels | nindent 8 }}
         {{- end }}
     spec:
+      {{- if .Values.supersetWorker.terminationGracePeriodSeconds }}
+      terminationGracePeriodSeconds: {{ .Values.supersetWorker.terminationGracePeriodSeconds }}
+      {{- end }}
       {{- if or (.Values.serviceAccount.create) (.Values.serviceAccountName) }}
       serviceAccountName: {{ template "superset.serviceAccountName" . }}
       {{- end }}
